@@ -28,15 +28,12 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Deploy
-        uses:
-          name:
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: main
-            folder: build
+      - uses: actions/checkout@v3
+      - name: Build App Artifacts
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+      - run: |
+          yarn
+          yarn build
