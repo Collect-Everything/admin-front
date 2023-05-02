@@ -1,0 +1,38 @@
+name: Automated Release Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 16.17.1
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test application
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+      - run: |
+          yarn
+          yarn build
+          yarn test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build App Artifacts
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+      - run: |
+          yarn
+          yarn build
