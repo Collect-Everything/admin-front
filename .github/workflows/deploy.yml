@@ -1,0 +1,42 @@
+name: Automated Release Deployment
+
+on:
+  push:
+    branches:
+      - main
+      - feat/ci
+
+env:
+  NODE_VERSION: 16.17.1
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test application
+        uses: actions/setup-node@v3
+        run: |
+          yarn
+          yarn build
+          yarn test
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        uses:
+          name:
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: main
+            folder: build
