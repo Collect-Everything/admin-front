@@ -155,5 +155,12 @@ export const useStore = defineStore({
         return companyUser;
       });
     },
+
+    countCompanies(isSub : boolean) {
+      if(isSub){
+        return this.companies?.filter((company) => company.subscriptionUpdatedAt).length
+      }
+      return this.companies?.filter((company) => !company.subscriptionUpdatedAt).length
+    }
   },
 })
