@@ -46,7 +46,7 @@ export default {
             <td>{{  companyUser.firstname  }}</td>
             <td>{{  companyUser.lastname  }}</td>
             <td>{{  companyUser.role  }}</td>
-            <td>{{  companyUser.companyId  }}</td>
+            <td>{{  companyUser.company  }}</td>
             <td v-if="companyUser.emailVerified" class="text-center"><fa-icon :icon="['fas', 'circle-check']" class="text-xl text-green-400" /></td>
             <td v-if="!companyUser.emailVerified" class="text-center"><fa-icon :icon="['fas', 'circle-xmark']" class="text-xl text-red-400" /></td>
           </tr>

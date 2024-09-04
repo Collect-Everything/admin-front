@@ -26,6 +26,7 @@ export interface CompanyUserState {
   role: string | null
   emailVerified: boolean | null
   companyId: string | null
+  company: string | undefined
 }
 
 export interface CompanyState {
@@ -119,6 +120,11 @@ export const useStore = defineStore({
       }
       const data = await response.json()
       this.companyUsers = data.data.data
+
+      if(!this.companies){
+        this.fetchCompanies()
+      }
+      this.mapCompanyNameToCompanyUsers()
     },
 
     async fetchCompanies() {
@@ -133,6 +139,21 @@ export const useStore = defineStore({
       }
       const data = await response.json()
       this.companies = data.data.data
+
+      if(!this.companyUsers){
+        this.fetchCompanyUsers()
+      }
+      this.mapCompanyNameToCompanyUsers()
+    },
+
+    mapCompanyNameToCompanyUsers() {
+      return this.companyUsers?.map((companyUser) => {
+        if(this.companies){
+          companyUser.company = this.companies.find((company) => company.id == companyUser.companyId)?.name
+        }
+          
+        return companyUser;
+      });
     },
   },
 })
