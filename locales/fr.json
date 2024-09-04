@@ -32,123 +32,13 @@
   },
   "general": {
     "or": "Ou",
-    "home": "Accueil",
+    "home": "Administration",
     "continue": "Continuer",
     "back": "Retour",
     "about": "À propos",
     "save": "Enregistrer",
-    "shopconfig": "Configuration boutique",
     "edit": "Modifier",
     "delete": "Supprimer",
     "cancel": "Annuler"
-  },
-  "invitations": {
-    "title": "Vérifiez votre boîte mail",
-    "text1": "Nous venons d'envoyer un email à l'adresse",
-    "text2": "Veuillez cliquer sur le lien pour vérifier votre adresse email et continuer vers la création de votre boutique.",
-    "resendEmail": "Renvoyer l'email",
-    "contactSUpport": "Contacter le support",
-    "configShop": "Configurer ma boutique",
-    "validated": {
-      "title": "Inscription validée",
-      "text1": "Votre adresse email a bien été vérifiée et votre compte est maintenant actif.",
-      "text2": "Vous pouvez passer à la création & personnalisation de votre boutique dès maintenant en cliquant sur le bouton ci-dessous !"
-    },
-    "error": {
-      "title": "Problème d'invitation",
-      "text1": "Cette invitation n'existe pas ou a déjà été acceptée.",
-      "text2": "Essayez de vous connecter à votre compte avec le bouton ci-dessous.",
-      "login": "Retour à la connexion"
-    }
-  },
-  "shop": {
-    "config": {
-      "title": "Configuration de votre boutique",
-      "text": "Entrez ici les informations de base de votre boutique.",
-      "shopName": "Nom de la boutique",
-      "logo": "Logo",
-      "colors": "Couleurs",
-      "chooseLogo": "Choisir un logo",
-      "colorsHint": "Cette couleur sera utilisée pour les boutons et accentuations.",
-      "primaryColor": "Couleur primaire",
-      "texts": {
-        "title": "Textes de votre boutique",
-        "text": "Entrez ici les textes, phrases d'accroche et points forts de votre boutique.",
-        "homePage": {
-          "mainSection": "Page d'accueil : Section principale",
-          "advantages": "Avantages boutique (optionnel)"
-        }
-      },
-      "homePage": {
-        "title": "Titre",
-        "description": "Description",
-        "buttonText": "Bouton",
-        "backgroundImage": "Image",
-        "chooseImage": "Choisir une image",
-        "icon": "Icône",
-        "addAdvantage": "Ajouter un autre avantage",
-        "chooseIcon": "Choisissez une icône"
-      },
-      "globalInfos": "Informations globales",
-      "categories": "Gestion des catégories",
-      "categoryName": "Nom de la catégorie",
-      "categoriesInfos": "Gérez ici les catégories de produits de votre boutique",
-      "addCategory": "Ajouter une catégorie",
-      "noCategories": "Aucune catégorie disponible",
-      "productsInfos": "Gérez ici les produits de votre boutique",
-      "addProduct": "Ajouter un produit",
-      "productName": "Nom du produit",
-      "products": "Gestion des produits",
-      "noProducts": "Aucun produit disponible",
-      "productCategory": "Catégorie du produit",
-      "productPrice": "Prix du produit",
-      "productDescription": "Description du produit",
-      "productStock": "Quantité en stock du produit",
-      "productConditioning": "Conditionnement du produit",
-      "productUnity": "Unité de mesure du produit",
-      "editProduct": "Modifier un produit"
-    }
-  },
-  "prices": {
-    "subtitle": "Commencez gratuitement, puis payez seulement si ça vous plaît",
-    "title": "Tarifs",
-    "description": "Essayez Collect&Verything gratuitement pendant 14 jours",
-    "monthly": "par mois",
-    "advantages": "Tous les avantages :",
-    "monthlyPrices": "Tarifs mensuels",
-    "yearly": "par an",
-    "faq": "Questions fréquentes",
-    "questions": {
-      "1": "Comment puis-je payer ?",
-      "2": "Puis-je changer de formule à tout moment ?",
-      "3": "Puis-je annuler mon abonnement ?"
-    },
-    "answers": {
-      "1": "Vous pouvez payer par carte bancaire ou par virement.",
-      "2": "Oui, vous pouvez changer de formule à tout moment.",
-      "3": "Oui, vous pouvez annuler votre abonnement à tout moment."
-    }
-  },
-  "home": {
-    "title": "Votre boutique e-commerce en quelques clics",
-    "subtitle": "Développez votre commerce en ligne grâce à Collect&verything en proposant vos services de Click&Collect.",
-    "learnMore": "En savoir plus",
-    "newsletter": "Rejoignez notre communauté et restez informé",
-    "newsletterDescription": "Inscrivez-vous pour recevoir nos dernières fonctionnalités, offres spéciales et conseils exclusifs.",
-    "subscribe": "S'abonner",
-    "joinNow": "Rejoignez-nous dès maintenant !"
-  },
-  "my-account": {
-    "title": "Ma boutique",
-    "seeShop": "Voir la boutique",
-    "subscriptionWarning": "Votre période d'essai se finit dans {nbDays} jours, passé ce délai votre boutique sera désactivée si vous ne passez pas à la formule d'abonnement supérieur.",
-    "changeSubscription": "Changer de formule d'abonnement",
-    "visual-identity": "Identité visuelle"
-  },
-  "about": {
-    "about-us": "Qui sommes-nous ?",
-    "about-us-description": "Collect&verything est une start-up dédiée à la création d'une solution novatrice dans le domaine du commerce en ligne. Nous sommes une équipe passionnée de développeurs, de créateurs et d'entrepreneurs engagés à faciliter le processus d'achat et de vente. Guidés par notre vision de soutenir les petites entreprises et de revitaliser les liens entre les entreprises et leurs clients, nous avons créé une application de click and collect offrant une alternative sécurisée et pratique dans le contexte actuel.",
-    "our-mission": "Que proposons-nous ?",
-    "our-mission-description": "Nous proposons une solution complète pour les commerçants désireux de se lancer dans le commerce en ligne tout en conservant le contact humain avec leur clientèle. Notre application de click and collect permet aux utilisateurs de parcourir les produits disponibles, de passer leurs commandes en ligne et de les récupérer ultérieurement en magasin, éliminant ainsi la nécessité de faire la queue ou d'entrer en contact physique avec le personnel de vente. Pour les commerçants, notre plateforme offre une interface conviviale pour gérer les commandes, intégrer leurs systèmes de gestion des stocks et garantir la sécurité des données personnelles de leurs clients. Avec Collect&verything, nous offrons une solution complète et sécurisée pour répondre aux défis actuels du commerce de détail, tout en soutenant les petites entreprises dans leur parcours vers la reprise et la croissance."
   }
 }

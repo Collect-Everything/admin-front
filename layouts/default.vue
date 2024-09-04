@@ -29,36 +29,12 @@
             <img src="~/assets/logo.png" alt="logo" class="h-20" />
           </NuxtLink>
 
-          <NuxtLink to="/" class="text-neutral-500">
+          <h1 class="text-neutral-500">
             <span>{{ $t('general.home') }}</span>
-          </NuxtLink>
-
-          <NuxtLink to="/prices" class="text-neutral-500">
-            <span>{{ $t('prices.title') }}</span>
-          </NuxtLink>
-
-          <NuxtLink to="/about" class="text-neutral-500">
-            <span>{{ $t('general.about') }}</span>
-          </NuxtLink>
-
-          <NuxtLink
-            v-if="isAuthenticated"
-            to="/shopconfig"
-            class="text-neutral-500"
-          >
-            <span>{{ $t('general.shopconfig') }}</span>
-          </NuxtLink>
+          </h1>
         </div>
 
         <div class="w-1/2 flex items-center justify-end space-x-6">
-          <button
-            v-if="!isAuthenticated"
-            class="btn-secondary"
-            @click="$router.push('/register')"
-          >
-            <span>{{ $t('login.register') }}</span>
-          </button>
-
           <button
             v-if="!isAuthenticated"
             class="btn-skeleton-secondary"
@@ -75,8 +51,6 @@
             <fa-icon :icon="['fas', 'sign-out-alt']" />
             <span>{{ $t('login.logout') }}</span>
           </button>
-
-          <LangDropdown />
         </div>
       </div>
     </div>
@@ -100,9 +74,9 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from '~/store'
+import { useStore } from '~/store'
 
-const { logout } = useMainStore()
+const { logout } = useStore()
 const router = useRouter()
 
 const isAuthenticated = !!localStorage.getItem('user')

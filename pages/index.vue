@@ -1,7 +1,11 @@
 <script setup lang="ts">
-await navigateTo('/login')
+const isAuthenticated = !!localStorage.getItem('user')
+
+if (!isAuthenticated){
+  await navigateTo('/login')
+} else {
+  await navigateTo('/company-users')
+}
 </script>
 
-<template>
-  
-</template>
+<template></template>
