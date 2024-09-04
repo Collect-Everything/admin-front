@@ -40,5 +40,45 @@
     "edit": "Modifier",
     "delete": "Supprimer",
     "cancel": "Annuler"
+  },
+  "companies": {
+    "home" : "Entreprises",
+    "title": "Entreprises",
+    "amount": "Entreprise",
+    "table": {
+      "id": "#",
+      "name": "Nom",
+      "phone": "Téléphone",
+      "email": "Mail",
+      "city": "Ville",
+      "country": "Pays",
+      "subscriptionStatus": "Type abonnement",
+      "subscriptionUpdatedAt": "Abonné depuis"
+    }
+  },
+  "company-users": {
+    "home" : "Utilisateurs ent",
+    "title": "Utilisateurs entreprise",
+    "amount": "Utilisateur",
+    "table": {
+      "id": "#",
+      "email": "Email",
+      "firstname": "Prénom",
+      "lastname": "Nom",
+      "role": "Rôle",
+      "company": "Entreprise",
+      "isEmailVerified": "Email vérifié"
+    }
+  },
+  "admin-users": {
+    "home" : "Admin",
+    "title": "Administrateurs Collect&verything",
+    "amount": "Administrateur",
+    "table": {
+      "id": "#",
+      "email": "Email",
+      "firstname": "Prénom",
+      "lastname": "Nom"
+    }
   }
 }

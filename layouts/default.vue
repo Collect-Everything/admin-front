@@ -16,9 +16,6 @@
           <img src="~/assets/logo.png" alt="logo" class="h-20" />
         </NuxtLink>
       </div>
-      <div class="w-1/3 flex items-center justify-end">
-        <LangDropdown />
-      </div>
     </div>
     <div v-else>
       <div
@@ -29,20 +26,24 @@
             <img src="~/assets/logo.png" alt="logo" class="h-20" />
           </NuxtLink>
 
-          <h1 class="text-neutral-500">
+          <h1 class="text-neutral-500" v-if="!isAuthenticated">
             <span>{{ $t('general.home') }}</span>
           </h1>
+
+          <NuxtLink to="/admin-users" v-if="isAuthenticated">
+            <span>{{ $t('admin-users.home') }}</span>
+          </NuxtLink>
+
+          <NuxtLink to="/companies" v-if="isAuthenticated">
+            <span>{{ $t('companies.home') }}</span>
+          </NuxtLink>
+
+          <NuxtLink to="/company-users" v-if="isAuthenticated">
+            <span>{{ $t('company-users.home') }}</span>
+          </NuxtLink>
         </div>
 
         <div class="w-1/2 flex items-center justify-end space-x-6">
-          <button
-            v-if="!isAuthenticated"
-            class="btn-skeleton-secondary"
-            @click="$router.push('/login')"
-          >
-            <span>{{ $t('login.login') }}</span>
-          </button>
-
           <button
             v-if="isAuthenticated"
             class="btn-skeleton-secondary"

@@ -15,13 +15,20 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', 'dayjs-nuxt'],
 
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+
+  dayjs: {
+    locales: ['fr'],
+    plugins: ['relativeTime', 'utc', 'timezone'],
+    defaultLocale: 'fr',
+    defaultTimezone: 'Europe/Paris',
   },
 
   build: {
