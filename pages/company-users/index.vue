@@ -3,18 +3,18 @@ import { useStore } from '~/store'
 
 export default {
   async setup() {
-    const store = useStore();
-    await store.fetchCompanyUsers();
+    const store = useStore()
+    await store.fetchCompanyUsers()
   },
   data() {
-    const store = useStore();
+    const store = useStore()
     return {
-      "companyUsers" : store.companyUsers,
-    };
+      companyUsers: store.companyUsers,
+    }
   },
 }
 </script>
-  
+
 <template>
   <div class="container mx-auto px-4 py-8 sm:py-12">
     <!--  -->
@@ -23,7 +23,10 @@ export default {
     </h1>
     <!--  -->
     <div class="flex items-center justify-between my-2">
-      <p>{{ companyUsers.length }} {{ $t('company-users.amount') }}{{ companyUsers.length > 1 ? 's' : '' }}</p>
+      <p>
+        {{ companyUsers.length }} {{ $t('company-users.amount')
+        }}{{ companyUsers.length > 1 ? 's' : '' }}
+      </p>
     </div>
     <!--  -->
     <div v-if="companyUsers.length > 0">
@@ -40,15 +43,25 @@ export default {
           </tr>
         </thead>
         <tbody class="divide-y">
-          <tr v-for="companyUser in companyUsers">
-            <td>{{  companyUser.id  }}</td>
-            <td>{{  companyUser.email  }}</td>
-            <td>{{  companyUser.firstname  }}</td>
-            <td>{{  companyUser.lastname  }}</td>
-            <td>{{  companyUser.role  }}</td>
-            <td>{{  companyUser.company  }}</td>
-            <td v-if="companyUser.emailVerified" class="text-center"><fa-icon :icon="['fas', 'circle-check']" class="text-xl text-green-400" /></td>
-            <td v-if="!companyUser.emailVerified" class="text-center"><fa-icon :icon="['fas', 'circle-xmark']" class="text-xl text-red-400" /></td>
+          <tr v-for="companyUser in companyUsers" :key="companyUser.id">
+            <td>{{ companyUser.id }}</td>
+            <td>{{ companyUser.email }}</td>
+            <td>{{ companyUser.firstname }}</td>
+            <td>{{ companyUser.lastname }}</td>
+            <td>{{ companyUser.role }}</td>
+            <td>{{ companyUser.company }}</td>
+            <td v-if="companyUser.emailVerified" class="text-center">
+              <fa-icon
+                :icon="['fas', 'circle-check']"
+                class="text-xl text-green-400"
+              />
+            </td>
+            <td v-if="!companyUser.emailVerified" class="text-center">
+              <fa-icon
+                :icon="['fas', 'circle-xmark']"
+                class="text-xl text-red-400"
+              />
+            </td>
           </tr>
         </tbody>
       </table>
@@ -56,4 +69,3 @@ export default {
     <!--  -->
   </div>
 </template>
-  

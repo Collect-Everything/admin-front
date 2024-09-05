@@ -3,18 +3,18 @@ import { useStore } from '~/store'
 
 export default {
   async setup() {
-    const store = useStore();
-    await store.fetchAdminUsers();
+    const store = useStore()
+    await store.fetchAdminUsers()
   },
   data() {
-    const store = useStore();
+    const store = useStore()
     return {
-      "adminUsers" : store.adminUsers,
-    };
+      adminUsers: store.adminUsers,
+    }
   },
 }
 </script>
-  
+
 <template>
   <div class="container mx-auto px-4 py-8 sm:py-12">
     <!--  -->
@@ -23,7 +23,10 @@ export default {
     </h1>
     <!--  -->
     <div class="flex items-center justify-between my-2">
-      <p>{{ adminUsers.length }} {{ $t('admin-users.amount') }}{{ adminUsers.length > 1 ? 's' : '' }}</p>
+      <p>
+        {{ adminUsers.length }} {{ $t('admin-users.amount')
+        }}{{ adminUsers.length > 1 ? 's' : '' }}
+      </p>
     </div>
     <!--  -->
     <div v-if="adminUsers.length > 0">
@@ -37,11 +40,11 @@ export default {
           </tr>
         </thead>
         <tbody class="divide-y">
-          <tr v-for="adminUser in adminUsers">
-            <td>{{  adminUser.id  }}</td>
-            <td>{{  adminUser.email  }}</td>
-            <td>{{  adminUser.firstname  }}</td>
-            <td>{{  adminUser.lastname  }}</td>
+          <tr v-for="adminUser in adminUsers" :key="adminUser.id">
+            <td>{{ adminUser.id }}</td>
+            <td>{{ adminUser.email }}</td>
+            <td>{{ adminUser.firstname }}</td>
+            <td>{{ adminUser.lastname }}</td>
           </tr>
         </tbody>
       </table>
@@ -49,4 +52,3 @@ export default {
     <!--  -->
   </div>
 </template>
-  

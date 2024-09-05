@@ -42,7 +42,7 @@
     "cancel": "Annuler"
   },
   "companies": {
-    "home" : "Entreprises",
+    "home": "Entreprises",
     "title": "Entreprises",
     "amount": "Entreprise",
     "table": {
@@ -54,10 +54,11 @@
       "country": "Pays",
       "subscriptionStatus": "Type abonnement",
       "subscriptionUpdatedAt": "Abonné depuis"
-    }
+    },
+    "subscriptions": "Répartition des abonnements"
   },
   "company-users": {
-    "home" : "Utilisateurs ent",
+    "home": "Utilisateurs entreprise",
     "title": "Utilisateurs entreprise",
     "amount": "Utilisateur",
     "table": {
@@ -71,7 +72,7 @@
     }
   },
   "admin-users": {
-    "home" : "Admin",
+    "home": "Utilisateurs administrateurs",
     "title": "Administrateurs Collect&verything",
     "amount": "Administrateur",
     "table": {
@@ -79,6 +80,10 @@
       "email": "Email",
       "firstname": "Prénom",
       "lastname": "Nom"
-    }
+    },
+    "admin": "Utilisateurs administrateurs"
+  },
+  "home": {
+    "home": "Accueil"
   }
 }

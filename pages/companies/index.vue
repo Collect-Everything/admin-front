@@ -6,18 +6,18 @@ const dayjs = useDayjs()
 
 export default {
   async setup() {
-    const store = useStore();
-    await store.fetchCompanies();
+    const store = useStore()
+    await store.fetchCompanies()
   },
   data() {
-    const store = useStore();
+    const store = useStore()
     return {
-      "companies" : store.companies,
-    };
+      companies: store.companies,
+    }
   },
 }
 </script>
-  
+
 <template>
   <div class="container mx-auto px-4 py-8 sm:py-12">
     <!--  -->
@@ -26,7 +26,10 @@ export default {
     </h1>
     <!--  -->
     <div class="flex items-center justify-between my-2">
-      <p>{{ companies.length }} {{ $t('companies.amount') }}{{ companies.length > 1 ? 's' : '' }}</p>
+      <p>
+        {{ companies.length }} {{ $t('companies.amount')
+        }}{{ companies.length > 1 ? 's' : '' }}
+      </p>
     </div>
     <!--  -->
     <div v-if="companies.length > 0">
@@ -44,7 +47,7 @@ export default {
           </tr>
         </thead>
         <tbody class="divide-y">
-          <tr v-for="company in companies">
+          <tr v-for="company in companies" :key="company.id">
             <td>{{ company.id }}</td>
             <td>{{ company.name }}</td>
             <td>{{ company.phone }}</td>
@@ -52,7 +55,9 @@ export default {
             <td>{{ company.city }}</td>
             <td>{{ company.country }}</td>
             <td>{{ company.subscriptionStatus }}</td>
-            <td v-if="company.subscriptionUpdatedAt">{{ $dayjs(company.subscriptionUpdatedAt).format('MM/DD/YYYY') }}</td>
+            <td v-if="company.subscriptionUpdatedAt">
+              {{ $dayjs(company.subscriptionUpdatedAt).format('MM/DD/YYYY') }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -60,4 +65,3 @@ export default {
     <!--  -->
   </div>
 </template>
-  

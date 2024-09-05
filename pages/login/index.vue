@@ -24,7 +24,6 @@
     <div class="border-b w-full border-gray-300" />
 
     <span v-if="errorMessage" class="text-red-500">{{ $t(errorMessage) }}</span>
-
   </div>
 </template>
 
@@ -53,8 +52,6 @@ async function login() {
       }
     )
 
-    console.log(data)
-
     errorMessage.value = ''
 
     const user = {
@@ -69,7 +66,6 @@ async function login() {
       window.location.reload()
     })
   } catch (error) {
-    console.log(error)
     errorMessage.value = 'login.error'
   }
 }

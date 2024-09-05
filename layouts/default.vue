@@ -26,19 +26,23 @@
             <img src="~/assets/logo.png" alt="logo" class="h-20" />
           </NuxtLink>
 
-          <h1 class="text-neutral-500" v-if="!isAuthenticated">
+          <h1 v-if="!isAuthenticated" class="text-neutral-500">
             <span>{{ $t('general.home') }}</span>
           </h1>
 
-          <NuxtLink to="/admin-users" v-if="isAuthenticated">
+          <NuxtLink v-if="isAuthenticated" to="/">
+            <span>{{ $t('home.home') }}</span>
+          </NuxtLink>
+
+          <NuxtLink v-if="isAuthenticated" to="/admin-users">
             <span>{{ $t('admin-users.home') }}</span>
           </NuxtLink>
 
-          <NuxtLink to="/companies" v-if="isAuthenticated">
+          <NuxtLink v-if="isAuthenticated" to="/companies">
             <span>{{ $t('companies.home') }}</span>
           </NuxtLink>
 
-          <NuxtLink to="/company-users" v-if="isAuthenticated">
+          <NuxtLink v-if="isAuthenticated" to="/company-users">
             <span>{{ $t('company-users.home') }}</span>
           </NuxtLink>
         </div>

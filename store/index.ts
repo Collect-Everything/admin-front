@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 
 interface User {
-    payload: {
-      id: string
-      email: string
-      firstname: string
-      lastname: string
-    }
-    accessToken: string
-    refreshToken: string
+  payload: {
+    id: string
+    email: string
+    firstname: string
+    lastname: string
+  }
+  accessToken: string
+  refreshToken: string
 }
 
 export interface AdminUserState {
@@ -54,8 +54,8 @@ export const useStore = defineStore({
   }),
   actions: {
     setUser(user: any) {
-        this.user = user
-        localStorage.setItem('user', JSON.stringify(user))
+      this.user = user
+      localStorage.setItem('user', JSON.stringify(user))
     },
 
     logout() {
@@ -86,7 +86,7 @@ export const useStore = defineStore({
           return
         }
         const data = await response.json()
-  
+
         this.setUser(data.data)
       } catch (error) {
         console.error(error)
@@ -101,9 +101,9 @@ export const useStore = defineStore({
       const response = await fetch(`${apiUrl}/admin-users?limit=100&page=1`, {
         method: 'GET',
       })
-      if (!response.ok) {
-        return
-      }
+
+      if (!response.ok) return
+
       const data = await response.json()
       this.adminUsers = data.data.data
     },
@@ -115,15 +115,14 @@ export const useStore = defineStore({
       const response = await fetch(`${apiUrl}/company-users?limit=100&page=1`, {
         method: 'GET',
       })
-      if (!response.ok) {
-        return
-      }
+
+      if (!response.ok) return
+
       const data = await response.json()
       this.companyUsers = data.data.data
 
-      if(!this.companies){
-        this.fetchCompanies()
-      }
+      if (!this.companies) this.fetchCompanies()
+
       this.mapCompanyNameToCompanyUsers()
     },
 
@@ -134,33 +133,37 @@ export const useStore = defineStore({
       const response = await fetch(`${apiUrl}/companies?limit=100&page=1`, {
         method: 'GET',
       })
-      if (!response.ok) {
-        return
-      }
+
+      if (!response.ok) return
+
       const data = await response.json()
       this.companies = data.data.data
 
-      if(!this.companyUsers){
-        this.fetchCompanyUsers()
-      }
+      if (!this.companyUsers) this.fetchCompanyUsers()
+
       this.mapCompanyNameToCompanyUsers()
     },
 
     mapCompanyNameToCompanyUsers() {
       return this.companyUsers?.map((companyUser) => {
-        if(this.companies){
-          companyUser.company = this.companies.find((company) => company.id == companyUser.companyId)?.name
+        if (this.companies) {
+          companyUser.company = this.companies.find(
+            (company) => company.id == companyUser.companyId
+          )?.name
         }
-          
-        return companyUser;
-      });
+
+        return companyUser
+      })
     },
 
-    countCompanies(isSub : boolean) {
-      if(isSub){
-        return this.companies?.filter((company) => company.subscriptionUpdatedAt).length
-      }
-      return this.companies?.filter((company) => !company.subscriptionUpdatedAt).length
-    }
+    countCompanies(isSub: boolean) {
+      if (isSub)
+        return this.companies?.filter(
+          (company) => company.subscriptionUpdatedAt
+        ).length
+
+      return this.companies?.filter((company) => !company.subscriptionUpdatedAt)
+        .length
+    },
   },
 })
