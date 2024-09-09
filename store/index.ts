@@ -159,10 +159,10 @@ export const useStore = defineStore({
     countCompanies(isSub: boolean) {
       if (isSub)
         return this.companies?.filter(
-          (company) => company.subscriptionUpdatedAt
+          (company) => company.subscriptionStatus === 'ACTIVE' || company.subscriptionStatus === 'FREE_TRIAL'
         ).length
 
-      return this.companies?.filter((company) => !company.subscriptionUpdatedAt)
+      return this.companies?.filter((company) => company.subscriptionStatus === 'EXPIRED' || company.subscriptionStatus === 'CANCELED')
         .length
     },
   },
